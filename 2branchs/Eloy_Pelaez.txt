@@ -1,0 +1,143 @@
+¨Que‚ es un branch?
+¨Por qu‚ pueden ser £tiles los branches?
+¨C¢mo se crea una branch?
+¨C¢mo se cambia a una branch?
+¨C¢mo se elimina una branch?
+¨C¢mo se crea una branch y se cambia a ella en un solo paso?
+¨Qu‚ es un merge?
+¨C¢mo se realiza un merge?
+¨Que es un tag?
+¨C¢mo se crea un tag?
+Soluciones
+1§git branch nombre-de-la-rama
+2§git checkout o en versiones mas recientes git switch
+3§git branch -d en local o git push origin --delete en remoto
+4§git checkout -b o git switch -c
+5§Un merge (fusi¢n) es el proceso de combinar los cambios de una rama en otra. Generalmente, se hace para integrar el trabajo de una rama secundaria (por ejemplo, feature-x) en la rama principal (main o develop).
+6§git checkout main para cambiar y git merge para fusionar
+7§Un tag (etiqueta) es una referencia fija a un punto espec¡fico en la historia de tu repositorio, com£nmente usado para marcar versiones (por ejemplo, v1.0, release-2.3).
+8§tag gero  git tag
+tag anotado  git tag -a nombre-del-tag -m
+subir el tag git push origin
+
+Antes del ejercicio
+C:\Users\Alumno\SergioPM\2branchs>git config --global alias.graph "log --all --graph --decorate --oneline"
+
+C:\Users\Alumno\SergioPM\2branchs>git graph
+* 4c09868 (HEAD -> rama-local, origin/rama-local) Lo que sea
+* ccfa5eb agregomisandwitch.txt
+* c2f7d87 Creacion de carpeta y subida de imagen
+* c425b7c (origin/main, origin/HEAD, main) Update README.md
+* 3bcfd89 Update README.md
+* 45ad63a Initial commit
+
+comando git graph
+C:\Users\Alumno\SergioPM\2branchs>git graph
+* 4c09868 (HEAD -> experimento, origin/rama-local, rama-local, ejercicio_2) Lo que sea
+* ccfa5eb agregomisandwitch.txt
+* c2f7d87 Creacion de carpeta y subida de imagen
+* c425b7c (origin/main, origin/HEAD, main) Update README.md
+* 3bcfd89 Update README.md
+* 45ad63a Initial commit
+
+2 git graph
+C:\Users\Alumno\SergioPM\2branchs>git graph
+* 4c09868 (HEAD -> anana, origin/rama-local, rama-local, master, experimento, ejercicio_2) Lo que sea
+* ccfa5eb agregomisandwitch.txt
+* c2f7d87 Creacion de carpeta y subida de imagen
+* c425b7c (origin/main, origin/HEAD, main) Update README.md
+* 3bcfd89 Update README.md
+* 45ad63a Initial commit
+
+3 git graph
+C:\Users\Alumno\SergioPM\2branchs>git graph
+* 4c09868 (HEAD -> master, origin/rama-local, rama-local, experimento, ejercicio_2, anana) Lo que sea
+* ccfa5eb agregomisandwitch.txt
+* c2f7d87 Creacion de carpeta y subida de imagen
+* c425b7c (origin/main, origin/HEAD, main) Update README.md
+* 3bcfd89 Update README.md
+* 45ad63a Initial commit
+
+4 git graph
+C:\Users\Alumno\SergioPM\2branchs>git graph
+* 4c09868 (HEAD -> master, origin/rama-local, rama-local, experimento, ejercicio_2, anana) Lo que sea
+* ccfa5eb agregomisandwitch.txt
+* c2f7d87 Creacion de carpeta y subida de imagen
+* c425b7c (origin/main, origin/HEAD, main) Update README.md
+* 3bcfd89 Update README.md
+* 45ad63a Initial commit
+
+branches mergeadas
+C:\Users\Alumno\SergioPM\2branchs>git branch --merged
+  anana
+  ejercicio_2
+  experimento
+  main
+* master
+  rama-local
+
+5 git graph
+C:\Users\Alumno\SergioPM\2branchs>git graph
+* 4c09868 (HEAD -> master, origin/rama-local, rama-local, experimento, ejercicio_2, anana) Lo que sea
+* ccfa5eb agregomisandwitch.txt
+* c2f7d87 Creacion de carpeta y subida de imagen
+* c425b7c (origin/main, origin/HEAD, main) Update README.md
+* 3bcfd89 Update README.md
+* 45ad63a Initial commit
+
+Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
+creo que automaticamente porque solo hice un comando sin especificar
+
+branch mergeados
+C:\Users\Alumno\SergioPM\2branchs>git branch --merged
+  ejercicio_2
+  main
+* master
+  rama-local
+
+6 git graph
+C:\Users\Alumno\SergioPM\2branchs>git graph
+* 4c09868 (HEAD -> master, origin/rama-local, rama-local, ejercicio_2) Lo que sea
+* ccfa5eb agregomisandwitch.txt
+* c2f7d87 Creacion de carpeta y subida de imagen
+* c425b7c (origin/main, origin/HEAD, main) Update README.md
+* 3bcfd89 Update README.md
+* 45ad63a Initial commit
+
+pregunta final del ejercicio
+C:\Users\Alumno\SergioPM\2branchs>git tag -a pizza -m "Receta de la pizza.""
+
+C:\Users\Alumno\SergioPM\2branchs>git tag
+pizza
+
+C:\Users\Alumno\SergioPM\2branchs>git show pizza
+tag pizza
+Tagger: Serg3loY <pemo.sergio@gmail.com>
+Date:   Tue May 20 14:25:44 2025 +0200
+
+Receta de la pizza."
+
+commit 4c0986874d0b4a4f1f0e70b3cae1ae42da39d0dc (HEAD -> master, tag: pizza, origin/rama-local, rama-local, ejercicio_2)
+Author: Serg3loY <pemo.sergio@gmail.com>
+Date:   Mon May 19 14:32:41 2025 +0200
+
+    Lo que sea
+
+diff --git a/1.commit/Eloy_Pelaez.txt b/1.commit/Eloy_Pelaez.txt
+new file mode 100644
+index 0000000..cd5a9c3
+--- /dev/null
++++ b/1.commit/Eloy_Pelaez.txt
+@@ -0,0 +1,129 @@
++<A8>C<A2>mo se inicializa un repositorio local? (que comando se debe ejecutar?)
++<A8>C<A2>mo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
++Si agrego un archivo a un directorio que ya est<A0> siendo controlado por git, <A8>est<A0> siendo controlado por git?
++<A8>Qu<82> comando se utiliza para agregar un archivo al repositorio local?
++<A8>C<A2>mo determino que archivos fueron modificados? (que comando se debe ejecutar?)
++<A8>Qu<82> comando se utiliza para hacer un commit?
++Soluciones:
++1<A7> git init
++2<A7> rm -rf .git
++3<A7> git add
++4<A7> git add <nombre_del_archivo>
+
